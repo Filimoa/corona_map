@@ -87,15 +87,7 @@ function App() {
           width={mapWidth}
           isDesktop={isDesktop}
         />
-        <Sidebar
-          selectedResort={selectedResort}
-          forecastTimeframe={forecastTimeframe}
-          userLocation={userLocation}
-          isDesktop={isDesktop}
-          className="resort-sidebar"
-        />
       </div>
-      <ScrollbarSize onLoad={measurement => setScrollSize(measurement)} />
     </div>
   );
 }
