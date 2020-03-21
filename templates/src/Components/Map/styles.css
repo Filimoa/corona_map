@@ -1,0 +1,35 @@
+.map mapGL {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 950px;
+  height: 450px;
+}
+
+.legend {
+  position: absolute;
+  bottom: 7%;
+  left: 30px;
+  width: 250px;
+}
+
+.geolocate {
+  width: 33px;
+  margin: 15px;
+}
+
+.hover-info {
+  text-align: center;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.hover-info h1 {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.hover-info p {
+  text-transform: lowercase;
+  font-size: 14px;
+}

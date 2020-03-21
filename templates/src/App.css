@@ -1,0 +1,21 @@
+:root {
+  --sidebar-width: 370px;
+}
+
+.main-header {
+  display: flex;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.resort-sidebar {
+  width: var(--sidebar-width);
+  overflow-y: auto;
+}
+
+/* .main-content MainMap {
+  height: 100%;
+} */

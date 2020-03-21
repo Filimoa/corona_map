@@ -1,0 +1,13 @@
+{
+    "python.formatting.provider": "none",
+    "python.linting.pylintEnabled": false,
+    "python.pythonPath": "/Users/andreyfilimonov/Desktop/PYTHON_CODING/learning_react/karta-update-2/KartaUpdate/venv/bin/python3.6",
+    "python.linting.flake8CategorySeverity.E": "Information",
+    "python.linting.flake8CategorySeverity.F": "Information",
+    "python.linting.flake8CategorySeverity.W": "Information",
+    "python.linting.lintOnSave": false,
+    "python.linting.enabled": false,
+    "code-runner.ignoreSelection": true,
+    "git.enabled": false,
+    "git.supportCancellation": true
+}

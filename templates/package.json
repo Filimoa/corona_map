@@ -1,0 +1,44 @@
+{
+  "name": "karta-update",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^3.26.3",
+    "dotenv": "^8.2.0",
+    "geojson-filter": "^0.1.4",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-ga": "^2.7.0",
+    "react-icons": "^3.7.0",
+    "react-map-gl": "^5.1.2",
+    "react-scripts": "^3.3.0",
+    "read-more-react": "^1.0.9",
+    "source-map-explorer": "^2.1.2",
+    "use-smooth-scroll": "^1.1.1",
+    "webfontloader": "^1.6.28"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:5000/",
+  "homepage": ".",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

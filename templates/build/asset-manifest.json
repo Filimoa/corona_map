@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "./static/css/main.cd0901c1.chunk.css",
+    "main.js": "./static/js/main.b6278e80.chunk.js",
+    "main.js.map": "./static/js/main.b6278e80.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.807c76ca.js",
+    "runtime-main.js.map": "./static/js/runtime-main.807c76ca.js.map",
+    "static/css/2.edea8e49.chunk.css": "./static/css/2.edea8e49.chunk.css",
+    "static/js/2.f794cbae.chunk.js": "./static/js/2.f794cbae.chunk.js",
+    "static/js/2.f794cbae.chunk.js.map": "./static/js/2.f794cbae.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.7f5d51606f0d49ef477bb472dfcee9ad.js": "./precache-manifest.7f5d51606f0d49ef477bb472dfcee9ad.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.edea8e49.chunk.css.map": "./static/css/2.edea8e49.chunk.css.map",
+    "static/css/main.cd0901c1.chunk.css.map": "./static/css/main.cd0901c1.chunk.css.map",
+    "static/js/2.f794cbae.chunk.js.LICENSE": "./static/js/2.f794cbae.chunk.js.LICENSE",
+    "static/media/powdamap_logo.png": "./static/media/powdamap_logo.0e1f6ab1.png",
+    "static/media/snow_legend_v6.png": "./static/media/snow_legend_v6.da377dda.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.807c76ca.js",
+    "static/css/2.edea8e49.chunk.css",
+    "static/js/2.f794cbae.chunk.js",
+    "static/css/main.cd0901c1.chunk.css",
+    "static/js/main.b6278e80.chunk.js"
+  ]
+}
