@@ -38,23 +38,6 @@ export default function SearchHeader(props) {
             menuDisplayName={"Season Pass Filter"}
           />
         </div>
-        <div className="resort-search-container">
-          <ResortSelect
-            className="resort-search"
-            resortData={props.resortData}
-            setSearchedResort={props.setSearchedResort}
-          />
-        </div>
-        <div className="zipcode-input-container">
-          <Search
-            style={{ width: "200px" }}
-            onChange={e => setUserLocation(e.target.value)}
-            onSearch={e => props.setUserLocation(userLocation)}
-            value={userLocation}
-            placeholder="Starting zipcode"
-            size="large"
-          />
-        </div>
       </div>
     </div>
   );
