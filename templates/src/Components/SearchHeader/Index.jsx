@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input } from "antd";
+import { Input, Slider } from "antd";
 import Dropdown from "./Dropdown";
 import CascadingDropdown from "./CascadingDropdown";
 import ResortSelect from "./ResortSelect";
@@ -9,9 +9,6 @@ import "./styles.css";
 import "antd/dist/antd.css";
 
 export default function SearchHeader(props) {
-  const [userLocation, setUserLocation] = useState("");
-  const { Search } = Input;
-
   const passOptions = {
     noFilter: "Show all",
     Ikon: "Ikon Pass",
@@ -38,6 +35,7 @@ export default function SearchHeader(props) {
             menuDisplayName={"Season Pass Filter"}
           />
         </div>
+        <Slider defaultValue={30} className="slider" />
       </div>
     </div>
   );

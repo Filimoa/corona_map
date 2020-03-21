@@ -16,12 +16,8 @@ export const snowLayer = {
   }
 };
 
-export const resortLayer = {
+export const changeLayer = {
   id: "point",
-  type: "symbol",
-  layout: {
-    "icon-image": "mountain-15",
-    "icon-allow-overlap": true,
-    "icon-size": 1
-  }
+  type: "line",
+  "line-opacity": 0.5
 };

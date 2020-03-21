@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import ResortSidebar from "../ResortSidebar/Index";
 import { Modal } from "antd";
 // import "./styles.css";
 
@@ -19,14 +18,7 @@ export default function Sidebar(props) {
     }
   }, [props.selectedResort]);
 
-  let sidebar = (
-    <ResortSidebar
-      {...props.selectedResort}
-      userLocation={props.userLocation}
-      forecastTimeframe={props.forecastTimeframe}
-      className="resort-sidebar"
-    />
-  );
+  let sidebar = null;
 
   let resortInfo = null;
 

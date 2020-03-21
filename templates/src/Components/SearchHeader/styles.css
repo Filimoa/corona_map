@@ -36,6 +36,11 @@
   padding-left: 10px;
 }
 
+.slider {
+  padding-left: 10px;
+  width: 200px;
+}
+
 .logo {
   width: 30%;
   min-width: 200px;

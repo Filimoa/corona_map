@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import MapGL, { Layer, Source } from "react-map-gl";
-import { snowLayer, resortLayer } from "./map-style";
+import { snowLayer, changeLayer } from "./map-style";
 
 import ResortPopup from "./ResortPopup";
 
 import legend from "../../Assets/snow_legend_v6.png";
 import flattenGeojson from "../../Utils/flattenGeojson";
-import gjfilter from "geojson-filter";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./styles.css";
@@ -73,7 +72,6 @@ function MainMap(props) {
         mapStyle="mapbox://styles/serjester/ck33r54pv2fab1crqyk8xuf89"
         mapboxApiAccessToken={MAPBOX_API_KEY}
         onViewportChange={_onViewportChange}
-        onHover={_onHover}
         onClick={event => _onClick(event)}
         interactiveLayerIds={["point"]}
         {...viewport}
@@ -81,8 +79,8 @@ function MainMap(props) {
         <Source type="geojson" data={props.snowData}>
           <Layer {...snowLayer} />
         </Source>
-        <Source id="my-data" type="geojson" data={props.resortData}>
-          <Layer {...resortLayer} />
+        <Source id="my-data" type="geojson" data={props.changeData}>
+          <Layer {...changeLayer} />
         </Source>
         {_renderPopup()}
       </MapGL>
