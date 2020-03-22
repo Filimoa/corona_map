@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import MapGL, { Layer, Source } from "react-map-gl";
-import { snowLayer, changeLayer } from "./map-style";
+import { fillLayer, changeLayer } from "./map-style";
 
 import ResortPopup from "./ResortPopup";
-
 import legend from "../../Assets/snow_legend_v6.png";
+
+import groupGeojson from "../../Utils/groupGeojson";
+import groupGeojson2 from "../../Utils/groupGeojson2";
+import getAsyncData from "../../Utils/getAsyncData";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./styles.css";
@@ -14,6 +17,24 @@ const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;
 function MainMap(props) {
   const [hoverInfo, setHoverInfo] = useState(null);
   const [popupInfo, setPopupInfo] = useState(null);
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    getAsyncData("/get-state-geojson").then(data => setData(data));
+  }, []);
+
+  useEffect(() => {
+    if (props.date != "2020-3-4") {
+      const format_date = "pct-" + props.date;
+      console.log(format_date);
+
+      const updatedData = Object.assign(
+        {},
+        groupGeojson2(data, f => f.properties[format_date])
+      );
+      setData(updatedData);
+    }
+  }, [props.date]);
 
   // animation
   const [viewport, setViewport] = useState({
@@ -63,7 +84,6 @@ function MainMap(props) {
     }
   };
 
-  console.log(props.changeData);
   return (
     <div className="map-container">
       <MapGL
@@ -73,16 +93,16 @@ function MainMap(props) {
         mapboxApiAccessToken={MAPBOX_API_KEY}
         onViewportChange={_onViewportChange}
         onClick={event => _onClick(event)}
-        interactiveLayerIds={["point", "state-layer"]}
+        interactiveLayerIds={["state-layer"]}
         {...viewport}
       >
-        <Source type="geojson" data={props.changeData}>
-          <Layer {...snowLayer} />
+        <Source type="geojson" data={data}>
+          <Layer {...fillLayer} />
         </Source>
-        <Source id="my-data" type="geojson" data={props.changeData}>
+        {/* <Source type="geojson" data={props.changeData}>
           <Layer {...changeLayer} />
-        </Source>
-        {_renderPopup()}
+        </Source> */}
+        {/* {_renderPopup()} */}
       </MapGL>
       <img src={legend} className="legend" />
     </div>

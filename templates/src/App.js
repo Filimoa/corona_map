@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import "./App.css";
 
 import SearchHeader from "./Components/SearchHeader/Index";
@@ -9,7 +9,7 @@ import getAsyncData from "./Utils/getAsyncData";
 import useWindowDimension from "./Utils/useWindowDimension";
 import checkIsDesktop from "./Utils/checkIsDesktop";
 import ScrollbarSize from "react-scrollbar-size";
-import groupGeojson from "./Utils/groupGeojson";
+import groupGeojson2 from "./Utils/groupGeojson";
 
 function initializeReactGA() {
   ReactGA.initialize("UA-154707070-1");
@@ -25,8 +25,8 @@ function App() {
   const [userLocation, setUserLocation] = useState("");
 
   // coronamap
-  const [data, setData] = useState(null);
-  const [date, setDate] = useState();
+  const [date, setDate] = useState("2020-3-4");
+  const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 
   const [scrollSize, setScrollSize] = useState(0);
   const { height, width } = useWindowDimension();
@@ -36,29 +36,45 @@ function App() {
   initializeReactGA();
 
   // get intitial sidebar resort
-  useEffect(() => {
-    getAsyncData("/get-state-geojson").then(data => setData(data));
-  }, []);
+  // useEffect(() => {
+  //   getAsyncData("/get-state-geojson").then(data => setData(data));
+  // }, []);
 
-  function onDateChange(newDate) {
-    setDate(newDate);
-    setData(groupGeojson(data, date));
-  }
+  // useEffect(() => {
+  //   if (data) {
+  //     const format_date = "pct-" + date;
+  //     const geojson = data;
+
+  //     for (var key of Object.keys(geojson.features)) {
+  //       let num_cases = geojson.features[key].properties[format_date];
+
+  //       if (num_cases < 50) {
+  //         geojson.features[key].properties.group = 1;
+  //       } else if (num_cases < 100) {
+  //         geojson.features[key].properties.group = 2;
+  //       } else if (num_cases < 150) {
+  //         geojson.features[key].properties.group = 3;
+  //       } else {
+  //         geojson.features[key].properties.group = 4;
+  //       }
+  //       // geojson.features[key].pop();
+  //       // forceUpdate();
+  //       // groupGeojson2(data, f => f.properties[date])
+  //     }
+  //     setData(groupGeojson2(data, f => f.properties[date]));
+  //   }
+  // }, [date]);
 
   return (
     <div>
       <script src="http://localhost:8097"></script>
-      <SearchHeader className="main-header" setDate={onDateChange} />
+      <SearchHeader className="main-header" setDate={setDate} />
       <div className="main-content">
         <MainMap
-          changeData={data}
-          resortData={resortData}
-          snowData={snowData}
+          // changeData={data}
           onClick={setSelectedResort}
-          setUserLocation={setUserLocation}
-          userLocation={userLocation}
-          forecastTimeframe={forecastTimeframe}
           isDesktop={isDesktop}
+          date={date}
         />
       </div>
     </div>

@@ -1,4 +1,4 @@
-export const snowLayer = {
+export const fillLayer = {
   id: "state-layer",
   type: "fill",
   paint: {

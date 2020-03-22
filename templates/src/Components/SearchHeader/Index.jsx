@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Slider } from "antd";
+import { Button, Slider } from "antd";
 import intToDate from "../../Utils/intToDate";
 
 import logo from "../../Assets/powdamap_logo.png";
@@ -18,6 +18,24 @@ export default function SearchHeader(props) {
     <div>
       <img src={logo} className="logo" />
       <div className="search-header">
+        <Button
+          type="primary"
+          ghost={true}
+          className="button-first"
+          shape="round"
+        >
+          {" "}
+          Doubling Rate
+        </Button>
+        <Button type="primary" ghost={true} className="button" shape="round">
+          {" "}
+          Total Infections
+        </Button>
+        <Button type="primary" ghost={true} className="button" shape="round">
+          {" "}
+          Total Tests
+        </Button>
+
         <Slider
           tipFormatter={intToDate}
           // defaultValue={Object.keys(int_to_date).length - 1}

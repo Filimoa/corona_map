@@ -11,7 +11,6 @@ export default function groupGeojson(geojson, date) {
     } else if (num_cases < 150) {
       geojson.features[key].properties.group = 3;
     } else {
-      console.log("activated");
       geojson.features[key].properties.group = 4;
     }
   }
