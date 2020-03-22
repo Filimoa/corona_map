@@ -1,14 +1,10 @@
 import React from "react";
 import { Popup } from "react-map-gl";
-import getForecastText from "../../Utils/getForecastText";
 
 export default function ResortPopup(props) {
   const forecastCol = "total-snow-" + props.forecastTimeframe;
 
-  const forecastText = getForecastText(
-    props[forecastCol],
-    props.forecastTimeframe
-  );
+  const forecastText = null;
 
   let content = null;
   if (props.isDesktop) {

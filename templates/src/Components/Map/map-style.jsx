@@ -1,5 +1,5 @@
 export const snowLayer = {
-  id: "snow-layer",
+  id: "state-layer",
   type: "fill",
   paint: {
     "fill-color": {

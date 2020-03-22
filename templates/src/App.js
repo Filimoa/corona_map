@@ -3,16 +3,13 @@ import "./App.css";
 
 import SearchHeader from "./Components/SearchHeader/Index";
 import ReactGA from "react-ga";
-import Sidebar from "./Components/Sidebar/Index";
 import MainMap from "./Components/Map/Index";
 
 import getAsyncData from "./Utils/getAsyncData";
-import getSnowGeojson from "./Utils/getSnowGeojson";
-import filterResortByPass from "./Utils/filterResortByPass";
 import useWindowDimension from "./Utils/useWindowDimension";
-import getMapWidth from "./Utils/getMapWidth";
 import checkIsDesktop from "./Utils/checkIsDesktop";
 import ScrollbarSize from "react-scrollbar-size";
+import groupGeojson from "./Utils/groupGeojson";
 
 function initializeReactGA() {
   ReactGA.initialize("UA-154707070-1");
@@ -26,7 +23,10 @@ function App() {
   const [forecastTimeframe, setForecastTimeframe] = useState(5);
   const [passFitler, setPassFilter] = useState("noFilter");
   const [userLocation, setUserLocation] = useState("");
-  const [changeData, setChangeData] = useState(null);
+
+  // coronamap
+  const [data, setData] = useState(null);
+  const [date, setDate] = useState();
 
   const [scrollSize, setScrollSize] = useState(0);
   const { height, width } = useWindowDimension();
@@ -37,24 +37,21 @@ function App() {
 
   // get intitial sidebar resort
   useEffect(() => {
-    getAsyncData("/get-state-geojson").then(data => setChangeData(data));
+    getAsyncData("/get-state-geojson").then(data => setData(data));
   }, []);
+
+  function onDateChange(newDate) {
+    setDate(newDate);
+    setData(groupGeojson(data, date));
+  }
 
   return (
     <div>
       <script src="http://localhost:8097"></script>
-      <SearchHeader
-        className="main-header"
-        setUserLocation={setUserLocation}
-        resortData={resortData}
-        forecastTimeframe={forecastTimeframe}
-        setForecastTimeframe={setForecastTimeframe}
-        passFitler={passFitler}
-        setPassFilter={setPassFilter}
-      />
+      <SearchHeader className="main-header" setDate={onDateChange} />
       <div className="main-content">
         <MainMap
-          changeData={changeData}
+          changeData={data}
           resortData={resortData}
           snowData={snowData}
           onClick={setSelectedResort}

@@ -5,7 +5,6 @@ import { snowLayer, changeLayer } from "./map-style";
 import ResortPopup from "./ResortPopup";
 
 import legend from "../../Assets/snow_legend_v6.png";
-import flattenGeojson from "../../Utils/flattenGeojson";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./styles.css";
@@ -64,6 +63,7 @@ function MainMap(props) {
     }
   };
 
+  console.log(props.changeData);
   return (
     <div className="map-container">
       <MapGL
@@ -73,10 +73,10 @@ function MainMap(props) {
         mapboxApiAccessToken={MAPBOX_API_KEY}
         onViewportChange={_onViewportChange}
         onClick={event => _onClick(event)}
-        interactiveLayerIds={["point"]}
+        interactiveLayerIds={["point", "state-layer"]}
         {...viewport}
       >
-        <Source type="geojson" data={props.snowData}>
+        <Source type="geojson" data={props.changeData}>
           <Layer {...snowLayer} />
         </Source>
         <Source id="my-data" type="geojson" data={props.changeData}>
