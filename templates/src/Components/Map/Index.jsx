@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MapGL, { Layer, Source } from "react-map-gl";
-import { fillLayer, changeLayer } from "./map-style";
+import { fillLayer } from "./map-style";
 
 import ResortPopup from "./ResortPopup";
 import legend from "../../Assets/snow_legend_v6.png";
@@ -26,7 +26,6 @@ function MainMap(props) {
   useEffect(() => {
     if (props.date != "2020-3-4") {
       const format_date = "pct-" + props.date;
-      console.log(format_date);
 
       const updatedData = Object.assign(
         {},
@@ -99,12 +98,8 @@ function MainMap(props) {
         <Source type="geojson" data={data}>
           <Layer {...fillLayer} />
         </Source>
-        {/* <Source type="geojson" data={props.changeData}>
-          <Layer {...changeLayer} />
-        </Source> */}
         {/* {_renderPopup()} */}
       </MapGL>
-      <img src={legend} className="legend" />
     </div>
   );
 }

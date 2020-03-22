@@ -1,0 +1,23 @@
+.legend {
+  position: absolute;
+  bottom: 7%;
+  left: 30px;
+  width: 250px;
+}
+
+.slider-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 4;
+}
+
+.map {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.map-container {
+  position: relative;
+}

@@ -6,17 +6,18 @@ export const fillLayer = {
       property: "group",
       stops: [
         [0, "transparent"],
-        [1, "#65befa"],
-        [2, "#35A3F8"],
-        [3, "#0087F2"],
-        [4, "#0278D4"]
+        [1, " #f9a8a8"],
+        [2, "#d78686"],
+        [3, "#b66666"],
+        [4, "#954647"],
+        [5, "#74272a"]
       ]
     },
     "fill-opacity": 0.5
   }
 };
 
-export const changeLayer = {
+export const quarantineLayer = {
   id: "point",
   type: "line",
   "line-opacity": 0.5
