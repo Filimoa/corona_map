@@ -35,24 +35,10 @@ function App() {
 
   initializeReactGA();
 
-  //animation
-
   // get intitial sidebar resort
   useEffect(() => {
     getAsyncData("/get-state-geojson").then(data => setChangeData(data));
   }, []);
-
-  // get snow data based on days out
-  // useEffect(() => {
-  //   getSnowGeojson(forecastTimeframe).then(data => setSnowData(data));
-  // }, [forecastTimeframe]);
-
-  // // LONG TERM
-  // useEffect(() => {
-  //   getAsyncData("/get-state-geojson").then(geojson => {
-  //     setResortData(filterResortByPass(geojson, passFitler));
-  //   });
-  // }, [passFitler]);
 
   return (
     <div>
