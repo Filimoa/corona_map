@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Slider } from "antd";
 import intToDate from "../../Utils/intToDate";
 import dateDiffInDays from "../../Utils/dateDiffInDays";
+import getTodayStr from "../../Utils/getTodayStr";
 
 import "./styles.css";
 import "antd/dist/antd.css";
-import getTodayStr from "../../Utils/getTodayStr";
 
 export default function DateSlider(props) {
   const [intDate, setIntDate] = useState(20);

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import MapGL, { Layer, Source } from "react-map-gl";
-import { fillLayer } from "./map-style";
+import { quarantineLayer, fillLayer } from "./map-style";
 
 import ResortPopup from "./ResortPopup";
-import groupGeojson2 from "../../Utils/groupGeojson2";
+import groupGeojson from "../../Utils/groupGeojson";
 import getAsyncData from "../../Utils/getAsyncData";
 
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -24,17 +24,15 @@ function MainMap(props) {
   useEffect(() => {
     if (data) {
       const format_date = props.displayType + "-" + props.date;
-      console.log(format_date);
 
       const updatedData = Object.assign(
         {},
-        groupGeojson2(data, f => f.properties[format_date], props.displayType)
+        groupGeojson(data, f => f.properties[format_date], props.displayType)
       );
       setData(updatedData);
     }
-  }, [props.date]);
+  }, [props.date, props.displayType]);
 
-  console.log(data);
   // animation
   const [viewport, setViewport] = useState({
     latitude: 39,
@@ -86,7 +84,9 @@ function MainMap(props) {
         <Source type="geojson" data={data}>
           <Layer {...fillLayer} />
         </Source>
-        {/* {_renderPopup()} */}
+        {/* <Source type="geojson" data={data}>
+          <Layer {...quarantineLayer} />
+        </Source> */}
       </MapGL>
     </div>
   );

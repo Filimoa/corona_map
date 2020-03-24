@@ -29,23 +29,23 @@ export const all_menu_text = {
     items: {
       item1: {
         color: "#f9a8a8",
-        text: "na"
+        text: "<10"
       },
       item2: {
         color: "#d78686",
-        text: "na"
+        text: "< 100"
       },
       item3: {
         color: "#b66666",
-        text: "na"
+        text: "< 1,000"
       },
       item4: {
         color: "#954647",
-        text: "na"
+        text: "< 5,000"
       },
       item5: {
         color: "#74272a",
-        text: "na"
+        text: "more than 5,000"
       }
     }
   },
@@ -54,23 +54,23 @@ export const all_menu_text = {
     items: {
       item1: {
         color: "#f9a8a8",
-        text: "na"
+        text: "< 10"
       },
       item2: {
         color: "#d78686",
-        text: "na"
+        text: "< 100"
       },
       item3: {
         color: "#b66666",
-        text: "na"
+        text: "< 1,000"
       },
       item4: {
         color: "#954647",
-        text: "na"
+        text: "< 5,000"
       },
       item5: {
         color: "#74272a",
-        text: "na"
+        text: "more than 5,000"
       }
     }
   }
