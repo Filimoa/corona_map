@@ -25,7 +25,7 @@ export default function SearchHeader(props) {
   }
 
   function onButtonClick2() {
-    props.setVal("tot");
+    props.setVal("cases");
     setButtonBackground1(true);
     setButtonBackground2(false);
     setButtonBackground3(true);

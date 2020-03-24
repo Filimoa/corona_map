@@ -1,13 +1,20 @@
 import React, { useState } from "react";
+
 import DateSlider from ".././Slider/Index";
 import MainMap from ".././Map/Index";
-import intToDate from "../../Utils/intToDate";
-import legend from "../../Assets/snow_legend_v6.png";
+import Legend from ".././Legend/Index";
 
 import "./styles.css";
 import "antd/dist/antd.css";
 
 export default function MapContainer(props) {
+  const legend_style = {
+    position: "fixed",
+    top: props.height - 200,
+    left: "30px",
+    zindex: "5"
+  };
+
   const [date, setDate] = useState("2020-3-4");
 
   return (
@@ -15,6 +22,7 @@ export default function MapContainer(props) {
       <div className="map">
         <MainMap
           onClick={props.setSelectedResort}
+          displayType={props.displayType}
           isDesktop={props.isDesktop}
           date={date}
         />
@@ -22,7 +30,9 @@ export default function MapContainer(props) {
       <div className="slider-container">
         <DateSlider setDate={setDate} />
       </div>
-      {/* <img src={legend} className="legend" /> */}
+      <div style={legend_style}>
+        <Legend className="map-legend" displayType={props.displayType} />
+      </div>
     </div>
   );
 }

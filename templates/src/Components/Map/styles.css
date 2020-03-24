@@ -6,13 +6,6 @@
   height: 450px;
 }
 
-.legend {
-  position: absolute;
-  bottom: 7%;
-  left: 30px;
-  width: 250px;
-}
-
 .hover-info {
   text-align: center;
   font-size: 14px;

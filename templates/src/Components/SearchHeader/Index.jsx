@@ -1,7 +1,7 @@
 import React from "react";
 
 import TripleButton from "./TripleButton";
-import logo from "../../Assets/powdamap_logo.png";
+import logo from "../../Assets/coronamap_logo.png";
 
 import "./styles.css";
 // import "antd/dist/antd.css";

@@ -1,0 +1,23 @@
+.legend {
+  width: 300px;
+}
+
+.menu-item {
+  display: flex;
+  margin-left: 5px;
+  margin-bottom: 2px;
+}
+
+.menu-item-text {
+  margin-left: 5px;
+}
+
+.legend {
+  width: 140px;
+  background: #f2f2f2;
+  border-radius: 5px;
+}
+
+.heading {
+  margin-bottom: 5px;
+}

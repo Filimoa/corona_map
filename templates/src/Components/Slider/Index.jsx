@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import { Slider } from "antd";
 import intToDate from "../../Utils/intToDate";
+import dateDiffInDays from "../../Utils/dateDiffInDays";
 
 import "./styles.css";
 import "antd/dist/antd.css";
+import getTodayStr from "../../Utils/getTodayStr";
 
 export default function DateSlider(props) {
   const [intDate, setIntDate] = useState(20);
 
   const slider_style = {
-    "slider-rail-background-color": "black"
+    sliderRailBackgroundColor: "black"
   };
+
+  // up to yesterday
+  const max_val = dateDiffInDays("2020-03-4", getTodayStr()) - 1;
 
   function onSliderChange(val) {
     setIntDate(val);
@@ -24,9 +29,9 @@ export default function DateSlider(props) {
         <Slider
           style={slider_style}
           tipFormatter={intToDate}
-          // defaultValue={Object.keys(int_to_date).length - 1}
+          defaultValue={max_val}
           onChange={onSliderChange}
-          max={30}
+          max={max_val}
         />
       </div>
     </div>

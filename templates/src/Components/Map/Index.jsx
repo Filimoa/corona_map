@@ -25,7 +25,8 @@ function MainMap(props) {
 
   useEffect(() => {
     if (props.date != "2020-3-4") {
-      const format_date = "pct-" + props.date;
+      const format_date = props.displayType + "-" + props.date;
+      console.log(format_date);
 
       const updatedData = Object.assign(
         {},
