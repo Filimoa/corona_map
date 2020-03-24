@@ -3,9 +3,6 @@ import MapGL, { Layer, Source } from "react-map-gl";
 import { fillLayer } from "./map-style";
 
 import ResortPopup from "./ResortPopup";
-import legend from "../../Assets/snow_legend_v6.png";
-
-import groupGeojson from "../../Utils/groupGeojson";
 import groupGeojson2 from "../../Utils/groupGeojson2";
 import getAsyncData from "../../Utils/getAsyncData";
 

@@ -34,6 +34,13 @@ const intDates = {
   32: "2020-4-5"
 };
 
-export default function intToDate(int_value) {
-  return intDates[int_value];
+export default function intToDate(days_int) {
+  var result = new Date("2020-3-4");
+  result.setDate(result.getDate() + days_int);
+
+  var d = String(result.getDate());
+  var m = String(result.getMonth() + 1);
+  var y = String(result.getFullYear());
+
+  return y + "-" + m + "-" + d;
 }

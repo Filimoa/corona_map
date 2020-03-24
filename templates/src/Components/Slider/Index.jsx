@@ -22,13 +22,22 @@ export default function DateSlider(props) {
     props.setDate(intToDate(intDate));
   }
 
+  function tipFormatter(int) {
+    // slider is in integer units, need to display this as pretty date
+    const date = new Date(intToDate(int));
+    const month = date.toLocaleString("default", { month: "long" });
+    const day = String(date.getDate());
+
+    return month + " " + day;
+  }
+
   return (
     <div className="date-slider">
       <div className="heading">Date</div>
       <div className="slider">
         <Slider
           style={slider_style}
-          tipFormatter={intToDate}
+          tipFormatter={tipFormatter}
           defaultValue={max_val}
           onChange={onSliderChange}
           max={max_val}
