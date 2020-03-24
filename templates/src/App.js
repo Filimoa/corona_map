@@ -15,11 +15,8 @@ function initializeReactGA() {
 }
 
 function App() {
-  // coronamap
-  const [date, setDate] = useState(getTodayStr());
   const [displayType, setDisplayType] = useState("pct");
 
-  const [scrollSize, setScrollSize] = useState(0);
   const { height, width } = useWindowDimension();
 
   let isDesktop = checkIsDesktop(width);
@@ -29,11 +26,7 @@ function App() {
   return (
     <div>
       <script src="http://localhost:8097"></script>
-      <SearchHeader
-        className="main-header"
-        setDate={setDate}
-        setDisplayType={setDisplayType}
-      />
+      <SearchHeader className="main-header" setDisplayType={setDisplayType} />
       <div className="main-content">
         <MapContainer
           // onClick={setSelectedResort}

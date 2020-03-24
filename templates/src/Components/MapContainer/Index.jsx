@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import DateSlider from ".././Slider/Index";
 import MainMap from ".././Map/Index";
 import Legend from ".././Legend/Index";
+import getTodayStr from "../../Utils/getTodayStr";
 
 import "./styles.css";
 import "antd/dist/antd.css";
@@ -15,6 +16,7 @@ export default function MapContainer(props) {
     zindex: "5"
   };
 
+  // FIXME change to getTodayStr()
   const [date, setDate] = useState("2020-3-4");
 
   return (

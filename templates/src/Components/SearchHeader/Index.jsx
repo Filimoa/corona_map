@@ -4,7 +4,6 @@ import TripleButton from "./TripleButton";
 import logo from "../../Assets/coronamap_logo.png";
 
 import "./styles.css";
-// import "antd/dist/antd.css";
 
 export default function SearchHeader(props) {
   return (

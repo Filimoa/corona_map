@@ -20,19 +20,21 @@ function MainMap(props) {
     getAsyncData("/get-state-geojson").then(data => setData(data));
   }, []);
 
+  // filtering data when date changes
   useEffect(() => {
-    if (props.date != "2020-3-4") {
+    if (data) {
       const format_date = props.displayType + "-" + props.date;
       console.log(format_date);
 
       const updatedData = Object.assign(
         {},
-        groupGeojson2(data, f => f.properties[format_date])
+        groupGeojson2(data, f => f.properties[format_date], props.displayType)
       );
       setData(updatedData);
     }
   }, [props.date]);
 
+  console.log(data);
   // animation
   const [viewport, setViewport] = useState({
     latitude: 39,
@@ -43,18 +45,6 @@ function MainMap(props) {
   //user panning
   const _onViewportChange = viewport => {
     setViewport({ ...viewport });
-  };
-
-  // user hovering over resort icon
-  const _onHover = event => {
-    let stats = null;
-
-    if (event.features && event.features.length) {
-      stats = { ...event.features[0]["properties"] };
-      stats["isDesktop"] = props.isDesktop;
-      stats["forecastTimeframe"] = props.forecastTimeframe;
-    }
-    setHoverInfo(stats);
   };
 
   //creating resort popups
@@ -77,7 +67,7 @@ function MainMap(props) {
   //display resort sidebar when resort icon clicked
   const _onClick = e => {
     if (e.features[0]) {
-      props.onClick(e.features[0].properties);
+      console.log(e.features[0].properties);
     }
   };
 
