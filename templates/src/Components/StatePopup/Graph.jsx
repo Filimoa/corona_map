@@ -51,12 +51,12 @@ export default function Graph(props) {
   ];
 
   return (
-    <div className="state-popup">
-      <BarChart width={300} height={200} data={data}>
+    <div>
+      <BarChart width={300} height={150} data={data}>
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
-        <Bar dataKey="val" fill="#8884d8" />
+        <Bar dataKey="val" fill="#f2f2f2" />
       </BarChart>
     </div>
   );

@@ -3,7 +3,19 @@
   /* background: grey; */
 }
 
-.stat {
-  /* statistic-title-font-size: 50px; */
-  /* statistic-unit-font-size: 5x; */
+.heading {
+  font-size: 24px;
+  background: #ff8184;
+}
+
+.stats {
+  width: 250px;
+}
+
+.item {
+  margin-right: 100px;
+}
+
+.graph {
+  margin-top: 10px;
 }
