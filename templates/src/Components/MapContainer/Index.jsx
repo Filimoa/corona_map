@@ -58,7 +58,13 @@ export default function MapContainer(props) {
 
   return (
     <div className="map-container">
-      <StatePopup isOpen={modalOpen} close={setModalOpen} {...demo} />
+      <StatePopup
+        isOpen={modalOpen}
+        close={setModalOpen}
+        displayType={props.displayType}
+        date={date}
+        {...chosenStateData}
+      />
 
       <div className="map">
         <MainMap

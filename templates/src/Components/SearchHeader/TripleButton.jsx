@@ -32,7 +32,7 @@ export default function SearchHeader(props) {
   }
 
   function onButtonClick3() {
-    props.setVal("test");
+    props.setVal("tests");
     setButtonBackground1(true);
     setButtonBackground2(true);
     setButtonBackground3(false);

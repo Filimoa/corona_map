@@ -29,7 +29,7 @@ export const all_menu_text = {
     items: {
       item1: {
         color: "#f9a8a8",
-        text: "<10"
+        text: "< 10"
       },
       item2: {
         color: "#d78686",
@@ -45,11 +45,11 @@ export const all_menu_text = {
       },
       item5: {
         color: "#74272a",
-        text: "more than 5,000"
+        text: "More than 5,000"
       }
     }
   },
-  test: {
+  tests: {
     heading: "Total Tests",
     items: {
       item1: {
@@ -70,7 +70,7 @@ export const all_menu_text = {
       },
       item5: {
         color: "#74272a",
-        text: "more than 5,000"
+        text: "More than 5,000"
       }
     }
   }

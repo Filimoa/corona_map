@@ -4,12 +4,18 @@
 } */
 
 .heading-popup {
+  margin-top: 20px;
   font-size: 24px;
   background: #ff8184;
+  color: white;
+  padding-left: 10px;
+  font-weight: bold;
 }
 
 .stats {
+  padding-top: 20px;
   width: 250px;
+  margin: auto;
 }
 
 .item {
@@ -17,5 +23,12 @@
 }
 
 .graph {
-  margin-top: 10px;
+  margin-top: 20px;
+}
+
+.graph-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: black;
 }

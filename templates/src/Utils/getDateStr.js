@@ -4,5 +4,7 @@ export default function getDateStr(date) {
   var m = String(date.getMonth() + 1);
   var y = String(date.getFullYear());
 
-  return y + "-" + m + "-" + d;
+  var date_str = y + "-" + m + "-" + d;
+
+  return date_str;
 }

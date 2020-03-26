@@ -7,11 +7,20 @@ import "./styles.css";
 export default function StatePopup(props) {
   // is this dangerous , in case of missing data
   const cases = props["cases-" + props.date];
-  const tests = props["test-" + props.date];
-  const deaths = props["test-" + props.deaths];
-  const doubling = props["pct-" + props.doubling];
+  const tests = props["tests-" + props.date];
+  const deaths = props["deaths-" + props.date];
+  const doubling = props["pct-" + props.date] + " days";
 
-  console.log("serge");
+  function dateHeadingFormatter(dateInput) {
+    const date = new Date(dateInput);
+    const month = date.toLocaleString("default", { month: "long" });
+    const day = String(date.getDate());
+
+    return "On " + month + " " + day;
+  }
+
+  const headingTitle = dateHeadingFormatter(props.date);
+
   return (
     <Modal
       footer={null}
@@ -22,17 +31,24 @@ export default function StatePopup(props) {
       bodyStyle={{ padding: "0px" }}
     >
       <div className="state-popup">
-        <div className="heading-popup">Ohio</div>
-        <Descriptions className="stats" bordered={true} size="small" column={1}>
-          <Descriptions.Item label="Total Cases">{cases}</Descriptions.Item>
-          <Descriptions.Item label="Deaths">{deaths}</Descriptions.Item>
-          <Descriptions.Item label="Total Tests">{tests}</Descriptions.Item>
-          <Descriptions.Item label="Case Doubling Rate">
-            {doubling}
-          </Descriptions.Item>
-        </Descriptions>
+        <div className="heading-popup">{props.state}</div>
+        <div className="stats">
+          <Descriptions
+            bordered={true}
+            size="small"
+            column={1}
+            title={headingTitle}
+          >
+            <Descriptions.Item label="Total Cases">{cases}</Descriptions.Item>
+            <Descriptions.Item label="Deaths">{deaths}</Descriptions.Item>
+            <Descriptions.Item label="Total Tests">{tests}</Descriptions.Item>
+            <Descriptions.Item label="Case Doubling Rate">
+              {doubling}
+            </Descriptions.Item>
+          </Descriptions>
+        </div>
         <div className="graph">
-          <Graph {...props} />
+          <Graph {...props} date={props.date} />
         </div>
       </div>
     </Modal>

@@ -16,11 +16,16 @@ export default function getGraphData(props) {
 
   var graphData = [];
 
-  const start_date = new Date("2020-3-19");
+  console.log(props);
+
+  // need to set this to new day
+  const start_date = new Date(props.date);
 
   for (var i = -10; i <= 0; i++) {
     var date = addDays(start_date, i);
+
     var date_str = props.displayType + "-" + getDateStr(date);
+
     var entry = { name: dateFormatter(date), val: props[date_str] };
 
     graphData.push(entry);

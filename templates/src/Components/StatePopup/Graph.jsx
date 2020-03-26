@@ -1,29 +1,32 @@
 import React from "react";
-import {
-  BarChart,
-  Bar,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
 
 import "./styles.css";
 import getGraphData from "../../Utils/getGraphData";
 
+const graph_titles = {
+  pct: "Doubling Rate",
+  tests: "Tests Performed",
+  cases: "Total Cases",
+  deaths: "Fatalities"
+};
+
 export default function Graph(props) {
-  // get date data
-  const data = getGraphData({ ...props });
+  let data = getGraphData({ ...props }, props.displayType);
+  const graph_title = graph_titles[props.displayType];
+
+  data.forEach(function(item, i) {
+    if (item["val"] == 999) data[i]["val"] = null;
+  });
 
   return (
     <div>
+      <div className="graph-title">{graph_title}</div>
       <BarChart width={300} height={150} data={data}>
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
-        <Bar dataKey="val" fill="#808080" />
+        <Bar dataKey="val" fill="#ff8184" />
       </BarChart>
     </div>
   );
