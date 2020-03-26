@@ -6,6 +6,8 @@ import Legend from ".././Legend/Index";
 import StatePopup from ".././StatePopup/Index";
 import getTodayStr from "../../Utils/getTodayStr";
 
+import { Modal } from "antd";
+
 import "./styles.css";
 import "antd/dist/antd.css";
 
@@ -35,6 +37,12 @@ const demo = {
   state_short: "AZ"
 };
 export default function MapContainer(props) {
+  const [chosenStateData, setChosenStateData] = useState(null);
+
+  // FIXME change to getTodayStr()
+  const [date, setDate] = useState("2020-3-4");
+  const [modalOpen, setModalOpen] = useState(false);
+
   const legend_style = {
     position: "fixed",
     top: props.height - 200,
@@ -42,15 +50,19 @@ export default function MapContainer(props) {
     zindex: "5"
   };
 
-  // FIXME change to getTodayStr()
-  const [date, setDate] = useState("2020-3-4");
+  // opening modal when state clicked
+  function onSelect(event) {
+    setChosenStateData(event);
+    setModalOpen(true);
+  }
 
   return (
     <div className="map-container">
-      <StatePopup {...demo} displayType={props.displayType} />
-      {/* <div className="map">
+      <StatePopup isOpen={modalOpen} close={setModalOpen} {...demo} />
+
+      <div className="map">
         <MainMap
-          onClick={props.setSelectedResort}
+          onClick={onSelect}
           displayType={props.displayType}
           isDesktop={props.isDesktop}
           date={date}
@@ -61,7 +73,7 @@ export default function MapContainer(props) {
       </div>
       <div style={legend_style}>
         <Legend className="map-legend" displayType={props.displayType} />
-      </div> */}
+      </div>
     </div>
   );
 }

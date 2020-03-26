@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import MapGL, { Layer, Source } from "react-map-gl";
 import { quarantineLayer, fillLayer } from "./map-style";
 
-import ResortPopup from "./ResortPopup";
 import groupGeojson from "../../Utils/groupGeojson";
 import getAsyncData from "../../Utils/getAsyncData";
 
@@ -12,8 +11,6 @@ import "./styles.css";
 const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;
 
 function MainMap(props) {
-  const [hoverInfo, setHoverInfo] = useState(null);
-  const [popupInfo, setPopupInfo] = useState(null);
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -45,27 +42,10 @@ function MainMap(props) {
     setViewport({ ...viewport });
   };
 
-  //creating resort popups
-  const _renderPopup = props => {
-    if (hoverInfo !== null) {
-      return <ResortPopup {...hoverInfo} closeButton={false} />;
-    }
-    if (popupInfo) {
-      return (
-        <ResortPopup
-          {...popupInfo}
-          closeButton={true}
-          onClose={() => setPopupInfo(null)}
-        />
-      );
-    }
-    return null;
-  };
-
   //display resort sidebar when resort icon clicked
   const _onClick = e => {
     if (e.features[0]) {
-      console.log(e.features[0].properties);
+      props.onClick(e.features[0]["properties"]);
     }
   };
 
@@ -84,9 +64,6 @@ function MainMap(props) {
         <Source type="geojson" data={data}>
           <Layer {...fillLayer} />
         </Source>
-        {/* <Source type="geojson" data={data}>
-          <Layer {...quarantineLayer} />
-        </Source> */}
       </MapGL>
     </div>
   );
