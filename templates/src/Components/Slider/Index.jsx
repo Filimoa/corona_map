@@ -24,7 +24,7 @@ export default function DateSlider(props) {
 
   function tipFormatter(int) {
     // slider is in integer units, need to display this as pretty date
-    const date = new Date(intToDate(int));
+    const date = new Date(intToDate(int - 1));
     const month = date.toLocaleString("default", { month: "long" });
     const day = String(date.getDate());
 

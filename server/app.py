@@ -17,11 +17,19 @@ def index():
     
 
 @app.route("/get-state-geojson", methods=["GET"])
-def get_resort_geojson_data():
+def get_state_geojson_data():
     data = requests.get("https://corona-map.s3.us-east-2.amazonaws.com/merged.geojson").json()
     return data
 
+@app.route("/get-state-quarantines", methods=["GET"])
+def get_quarantine_data():
+    data = requests.get("https://corona-map.s3.us-east-2.amazonaws.com/quarantine_states.json").json()
+    return data
 
+@app.route("/get-quarantines-outlines", methods=["GET"])
+def get_quarantine_outlines():
+    data = requests.get("https://corona-map.s3.us-east-2.amazonaws.com/quarantine_states.geojson").json()
+    return data
 
 
 if __name__ == "__main__":

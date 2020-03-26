@@ -20,5 +20,16 @@ export const fillLayer = {
 export const quarantineLayer = {
   id: "point",
   type: "line",
-  "line-opacity": 0.5
+  paint: {
+    "line-color": {
+      property: "group",
+      stops: [
+        [0, "transparent"],
+        [1, "transparent"],
+        [2, "black"]
+      ]
+    },
+    // "line-dasharray": [2, 2],
+    "line-width": 3
+  }
 };

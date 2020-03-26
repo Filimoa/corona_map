@@ -45,7 +45,7 @@ export default function MapContainer(props) {
 
   const legend_style = {
     position: "fixed",
-    top: props.height - 200,
+    top: props.height - 300,
     left: "30px",
     zindex: "5"
   };

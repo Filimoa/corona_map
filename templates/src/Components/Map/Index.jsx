@@ -3,6 +3,7 @@ import MapGL, { Layer, Source } from "react-map-gl";
 import { quarantineLayer, fillLayer } from "./map-style";
 
 import groupGeojson from "../../Utils/groupGeojson";
+import filterQuarantine from "../../Utils/filterQuarantine";
 import getAsyncData from "../../Utils/getAsyncData";
 
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -12,9 +13,24 @@ const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;
 
 function MainMap(props) {
   const [data, setData] = useState(null);
+  const [outlines, setOutlines] = useState(null);
+  const [quarantineStatus, setQuarantineStatus] = useState(null);
 
+  const [viewport, setViewport] = useState({
+    latitude: 39,
+    longitude: -98,
+    zoom: 4
+  });
+
+  // initial data load
   useEffect(() => {
     getAsyncData("/get-state-geojson").then(data => setData(data));
+
+    getAsyncData("/get-state-quarantines").then(data => {
+      setQuarantineStatus(data);
+    });
+
+    getAsyncData("/get-quarantines-outlines").then(data => setOutlines(data));
   }, []);
 
   // filtering data when date changes
@@ -22,20 +38,26 @@ function MainMap(props) {
     if (data) {
       const format_date = props.displayType + "-" + props.date;
 
+      // fill data
       const updatedData = Object.assign(
         {},
         groupGeojson(data, f => f.properties[format_date], props.displayType)
       );
       setData(updatedData);
+
+      // line data
+      const updatedOutlines = Object.assign(
+        {},
+        filterQuarantine(
+          outlines,
+          f => f.properties["state"],
+          quarantineStatus,
+          props.date
+        )
+      );
+      setOutlines(updatedOutlines);
     }
   }, [props.date, props.displayType]);
-
-  // animation
-  const [viewport, setViewport] = useState({
-    latitude: 39,
-    longitude: -98,
-    zoom: 4
-  });
 
   //user panning
   const _onViewportChange = viewport => {
@@ -63,6 +85,9 @@ function MainMap(props) {
       >
         <Source type="geojson" data={data}>
           <Layer {...fillLayer} />
+        </Source>
+        <Source type="geojson" data={outlines}>
+          <Layer {...quarantineLayer} />
         </Source>
       </MapGL>
     </div>
