@@ -7,7 +7,6 @@ import MapContainer from "./Components/MapContainer/Index";
 
 import useWindowDimension from "./Utils/useWindowDimension";
 import checkIsDesktop from "./Utils/checkIsDesktop";
-import getTodayStr from "./Utils/getTodayStr";
 
 function initializeReactGA() {
   ReactGA.initialize("UA-154707070-1");
@@ -16,9 +15,7 @@ function initializeReactGA() {
 
 function App() {
   const [displayType, setDisplayType] = useState("pct");
-
   const { height, width } = useWindowDimension();
-
   let isDesktop = checkIsDesktop(width);
 
   initializeReactGA();
@@ -29,7 +26,6 @@ function App() {
       <SearchHeader className="main-header" setDisplayType={setDisplayType} />
       <div className="main-content">
         <MapContainer
-          // onClick={setSelectedResort}
           height={height}
           isDesktop={isDesktop}
           displayType={displayType}
