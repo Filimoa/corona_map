@@ -15,7 +15,7 @@ export default function DateSlider(props) {
   };
 
   // up to yesterday
-  const max_val = dateDiffInDays("2020-03-4", getTodayStr()) - 1;
+  const max_val = dateDiffInDays("2020-03-4", getTodayStr());
 
   function onSliderChange(val) {
     setIntDate(val);

@@ -21,3 +21,13 @@
 .heading {
   margin-bottom: 5px;
 }
+
+.item-line {
+  background: black;
+  width: 20px;
+  height: 3px;
+}
+
+.item-line-container {
+  padding-top: 10px;
+}

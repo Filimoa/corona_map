@@ -1,6 +1,7 @@
 import React from "react";
 
 import Item from "./Item.jsx";
+import ItemLine from "./ItemLine.jsx";
 import { all_menu_text } from "./menu_text";
 import "./styles.css";
 
@@ -21,13 +22,7 @@ export default function Legend(props) {
     <div className="legend">
       <div className="heading">{menu_text["heading"]}</div>
       <div>{body}</div>;<div className="heading">Quarantine</div>
-      <Item
-        key={"quarantine-full"}
-        color={"black"}
-        text="Shelter in place"
-        width="20px"
-        height="3px"
-      />
+      <ItemLine />
     </div>
   );
 }

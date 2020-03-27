@@ -19,7 +19,7 @@ function MainMap(props) {
   const [viewport, setViewport] = useState({
     latitude: 39,
     longitude: -98,
-    zoom: 4
+    zoom: 3.5
   });
 
   // initial data load
