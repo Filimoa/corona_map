@@ -16,8 +16,6 @@ export default function getGraphData(props) {
 
   var graphData = [];
 
-  console.log(props);
-
   // need to set this to new day
   const start_date = new Date(props.date.replace(/-/g, "/"));
 

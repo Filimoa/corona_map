@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Slider } from "antd";
 import intToDate from "../../Utils/intToDate";
 import dateDiffInDays from "../../Utils/dateDiffInDays";
-import getTodayStr from "../../Utils/getTodayStr";
+import getYesterdayStr from "../../Utils/getYesterdayStr";
 
 import "./styles.css";
 import "antd/dist/antd.css";
@@ -15,7 +15,8 @@ export default function DateSlider(props) {
   };
 
   // up to yesterday
-  const max_val = dateDiffInDays("2020-03-4", getTodayStr());
+
+  const max_val = dateDiffInDays("2020-03-4", getYesterdayStr());
 
   function onSliderChange(val) {
     setIntDate(val);

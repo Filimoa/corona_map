@@ -9,5 +9,6 @@ export default function dateDiffInDays(date1, date2) {
   const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
   const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
 
-  return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+  // need to check this math
+  return Math.floor((utc2 - utc1) / _MS_PER_DAY) + 1;
 }

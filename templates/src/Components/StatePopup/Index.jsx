@@ -11,6 +11,9 @@ export default function StatePopup(props) {
   const deaths = props["deaths-" + props.date];
   const doubling = props["pct-" + props.date] + " days";
 
+  //   console.log(props.date);
+  //   console.log(cases);
+
   function dateHeadingFormatter(dateInput) {
     const date = new Date(dateInput);
     const month = date.toLocaleString("default", { month: "long" });

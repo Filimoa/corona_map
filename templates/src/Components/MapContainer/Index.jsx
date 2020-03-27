@@ -4,7 +4,7 @@ import DateSlider from ".././Slider/Index";
 import MainMap from ".././Map/Index";
 import Legend from ".././Legend/Index";
 import StatePopup from ".././StatePopup/Index";
-import getTodayStr from "../../Utils/getTodayStr";
+import getYesterdayStr from "../../Utils/getYesterdayStr";
 
 import { Modal } from "antd";
 
@@ -40,7 +40,7 @@ export default function MapContainer(props) {
   const [chosenStateData, setChosenStateData] = useState(null);
 
   // FIXME change to getTodayStr()
-  const [date, setDate] = useState("2020-3-4");
+  const [date, setDate] = useState(getYesterdayStr);
   const [modalOpen, setModalOpen] = useState(false);
 
   //   const legend_style = {
