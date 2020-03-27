@@ -9,7 +9,7 @@ export default function filterQuarantine(
   quarantineData,
   date
 ) {
-  const filterDate = new Date(date);
+  const filterDate = new Date(date.replace(/-/g, "/"));
 
   function groupVar(x) {
     // ex: x = "Ohio"
@@ -19,7 +19,7 @@ export default function filterQuarantine(
       var stateDate = quarantineData[x]["date"];
 
       if (stateDate) {
-        stateDate = new Date(stateDate[0]);
+        stateDate = new Date(stateDate[0].replace(/-/g, "/"));
         if (stateDate <= filterDate) {
           group = 2;
         }
