@@ -43,12 +43,12 @@ export default function MapContainer(props) {
   const [date, setDate] = useState("2020-3-4");
   const [modalOpen, setModalOpen] = useState(false);
 
-  const legend_style = {
-    position: "fixed",
-    top: props.height - 300,
-    left: "30px",
-    zindex: "5"
-  };
+  //   const legend_style = {
+  //     position: "fixed",
+  //     top: props.height - 300,
+  //     left: "30px",
+  //     zindex: "5"
+  //   };
 
   // opening modal when state clicked
   function onSelect(event) {
@@ -77,8 +77,8 @@ export default function MapContainer(props) {
       <div className="slider-container">
         <DateSlider setDate={setDate} />
       </div>
-      <div style={legend_style}>
-        <Legend className="map-legend" displayType={props.displayType} />
+      <div className="legend-container">
+        <Legend displayType={props.displayType} />
       </div>
     </div>
   );

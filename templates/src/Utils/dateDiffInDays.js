@@ -2,8 +2,8 @@ const _MS_PER_DAY = 1000 * 60 * 60 * 24;
 
 // a and b are javascript Date objects
 export default function dateDiffInDays(date1, date2) {
-  const a = new Date(date1);
-  const b = new Date(date2);
+  const a = new Date(date1.replace(/-/g, "/"));
+  const b = new Date(date2.replace(/-/g, "/"));
 
   // Discard the time and time-zone information.
   const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());

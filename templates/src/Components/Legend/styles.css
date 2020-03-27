@@ -1,5 +1,14 @@
-.legend {
-  width: 300px;
+.legend-closed {
+  padding-left: 5px;
+  display: flex;
+  width: 100px;
+  background: white;
+  border-radius: 5px;
+}
+
+.IoIosArrowDown {
+  margin-top: 5px;
+  margin-left: -6px;
 }
 
 .menu-item {
@@ -14,12 +23,13 @@
 
 .legend {
   width: 140px;
-  background: #f2f2f2;
+  background: white;
   border-radius: 5px;
 }
 
 .heading {
   margin-bottom: 5px;
+  text-align: left;
 }
 
 .item-line {
@@ -30,4 +40,9 @@
 
 .item-line-container {
   padding-top: 10px;
+}
+
+.button-container {
+  background: transparent;
+  border: none !important;
 }

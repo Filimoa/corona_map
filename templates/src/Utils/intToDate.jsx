@@ -35,7 +35,7 @@ const intDates = {
 };
 
 export default function intToDate(days_int) {
-  var result = new Date("2020-3-4");
+  var result = new Date("2020/3/4");
   result.setDate(result.getDate() + days_int);
 
   var d = String(result.getDate());

@@ -19,7 +19,7 @@ export default function getGraphData(props) {
   console.log(props);
 
   // need to set this to new day
-  const start_date = new Date(props.date);
+  const start_date = new Date(props.date.replace(/-/g, "/"));
 
   for (var i = -10; i <= 0; i++) {
     var date = addDays(start_date, i);
