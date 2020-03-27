@@ -43,13 +43,6 @@ export default function MapContainer(props) {
   const [date, setDate] = useState(getYesterdayStr);
   const [modalOpen, setModalOpen] = useState(false);
 
-  //   const legend_style = {
-  //     position: "fixed",
-  //     top: props.height - 300,
-  //     left: "30px",
-  //     zindex: "5"
-  //   };
-
   // opening modal when state clicked
   function onSelect(event) {
     setChosenStateData(event);

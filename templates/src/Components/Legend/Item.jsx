@@ -11,7 +11,6 @@ export default function Item(props) {
   return (
     <div className="menu-item">
       <div style={item_style}>&nbsp;</div>
-
       <div className="menu-item-text">{props.text}</div>
     </div>
   );
