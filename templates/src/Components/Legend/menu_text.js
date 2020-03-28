@@ -50,27 +50,27 @@ export const all_menu_text = {
     }
   },
   tests: {
-    heading: "Total Tests",
+    heading: "Tests per case",
     items: {
       item1: {
         color: "#f9a8a8",
-        text: "< 10"
+        text: "1 - 5"
       },
       item2: {
         color: "#d78686",
-        text: "< 100"
+        text: "< 10"
       },
       item3: {
         color: "#b66666",
-        text: "< 1,000"
+        text: "< 15"
       },
       item4: {
         color: "#954647",
-        text: "< 5,000"
+        text: "< 20"
       },
       item5: {
         color: "#74272a",
-        text: "More than 5,000"
+        text: "More than 20"
       }
     }
   }

@@ -69,7 +69,7 @@ export default function SearchHeader(props) {
           style={button_style}
           shape="round"
         >
-          Total Tests
+          Testing Ratio
         </Button>
       </div>
     </div>

@@ -7,7 +7,7 @@ import "./styles.css";
 export default function StatePopup(props) {
   // is this dangerous , in case of missing data
   const cases = props["cases-" + props.date];
-  const tests = props["tests-" + props.date];
+  const tests = props["tests-" + props.date] + " ppl / case";
   const deaths = props["deaths-" + props.date];
   const doubling = props["pct-" + props.date] + " days";
 
@@ -41,7 +41,7 @@ export default function StatePopup(props) {
           >
             <Descriptions.Item label="Total Cases">{cases}</Descriptions.Item>
             <Descriptions.Item label="Deaths">{deaths}</Descriptions.Item>
-            <Descriptions.Item label="Total Tests">{tests}</Descriptions.Item>
+            <Descriptions.Item label="Testing Ratio">{tests}</Descriptions.Item>
             <Descriptions.Item label="Case Doubling Rate">
               {doubling}
             </Descriptions.Item>

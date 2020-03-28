@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template, jsonify
-import utils
 import requests
 import os
 
@@ -13,8 +12,7 @@ def index():
     rendering main page
     """
     return render_template("index.html")
-
-    
+ 
 
 @app.route("/get-state-geojson", methods=["GET"])
 def get_state_geojson_data():

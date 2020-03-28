@@ -6,7 +6,7 @@ import getGraphData from "../../Utils/getGraphData";
 
 const graph_titles = {
   pct: "Doubling Rate",
-  tests: "Tests Performed",
+  tests: "Total Tests per case",
   cases: "Total Cases",
   deaths: "Fatalities"
 };
