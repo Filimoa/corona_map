@@ -24,7 +24,7 @@ export default function Graph(props) {
       <div className="graph-title">{graph_title}</div>
       <BarChart width={300} height={150} data={data}>
         <XAxis dataKey="name" />
-        <YAxis />
+        <YAxis scale="linear" />
         <Tooltip />
         <Bar dataKey="val" fill="#ff8184" />
       </BarChart>

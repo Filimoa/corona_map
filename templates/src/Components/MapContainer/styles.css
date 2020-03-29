@@ -7,10 +7,18 @@
 
 .legend-container {
   position: absolute;
-  top: 60px;
-  left: 34px;
+  top: 99px;
+  left: 40px;
   z-index: 4;
 }
+
+.us-overview-container {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  z-index: 4;
+}
+
 .map {
   position: absolute;
   top: 0px;

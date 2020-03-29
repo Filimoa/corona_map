@@ -29,6 +29,10 @@ def get_quarantine_outlines():
     data = requests.get("https://corona-map.s3.us-east-2.amazonaws.com/quarantine_states.geojson").json()
     return data
 
+@app.route("/get-usa-data", methods=["GET"])
+def get_usa_overview():
+    data = requests.get("https://corona-map.s3.us-east-2.amazonaws.com/usa_overview").json()
+    return data
 
 if __name__ == "__main__":
     app.run()

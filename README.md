@@ -2,9 +2,9 @@
 
 # To-do:
 
-0. Replace tests with test per active case
 1. Add entire US button
-1. Clean up existing code
-1. Improve formatter on graph
-1. Replace test button with hospital capacity
-1. Add about page + data credits
+2. Add hospital capacity
+3. Clean up existing code
+4. Improve formatter on graph
+5. Replace test button with hospital capacity
+6. Add about page + data credits
